@@ -1,0 +1,63 @@
+type User implements Entity {
+  # id
+  id: Int!
+
+  # first name
+  firstName: String
+
+  # last name
+  lastName: String
+
+  # email
+  email: String
+
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+input CreateUserInput {
+  # first name
+  firstName: String
+
+  # last name
+  lastName: String
+
+  # email
+  email: String
+
+  # plain password
+  password: String
+}
+
+input UpdateUserInput {
+  id: Int!
+  firstName: String
+  lastName: String
+  email: String
+}
+
+type UserPagingResult {
+  pagingMeta: PagingMetaResult
+  data: [User]
+}
+
+type Query {
+  users(input: PagingInput): UserPagingResult
+  user(id: Int!): User
+}
+
+type UpdateResult {
+  raw: User
+  affected: Int
+}
+
+type DeleteResult {
+  raw: User
+  affected: Int
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): UpdateResult
+  removeUser(id: Int!): DeleteResult
+}

@@ -1,0 +1,36 @@
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+# input RequestNewPasswordInput{
+#     email:String
+# }
+
+input ExchangeRefreshTokenInput {
+  refreshToken: String!
+}
+
+# type UserResponse {
+#   email: String
+#   firstname: String
+#   lastname: String
+#   role: String
+#   profileImage: String
+#   _id: String
+# }
+
+type LoginResponse {
+  access_token: String
+  refresh_token: String
+  user: User
+}
+
+type Query {
+  ExchangeRefreshToken(input: ExchangeRefreshTokenInput!): LoginResponse
+}
+
+type Mutation {
+  Login(input: LoginInput!): LoginResponse
+  #   RequestNewPassword(input: RequestNewPasswordInput!): MessageResponse
+}

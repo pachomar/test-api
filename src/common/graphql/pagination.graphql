@@ -1,0 +1,22 @@
+enum OrderDir {
+  ASC
+  DESC
+}
+
+# Input object for paging, ordering, and searching
+input PagingInput {
+  skip: Int
+
+  take: Int
+
+  search: String
+}
+
+# Paging meta result
+type PagingMetaResult {
+  # Total number of items matching the query
+  count: Int
+
+  # True if it has another page, false otherwise
+  hasNextPage: Boolean
+}

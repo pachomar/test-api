@@ -1,0 +1,19 @@
+scalar Date
+
+# Entities in the database have required fields
+interface Entity {
+  # The unique entity id
+  id: Int!
+
+  # Date the entity was created
+  createdAt: Date!
+
+  # Date the entity was last updated
+  updatedAt: Date!
+}
+
+# Only the entity unique id is needed to delete
+input EntityDeleteInput {
+  # The unique entity id
+  id: String!
+}

@@ -1,0 +1,6 @@
+enum ProductIntervalType {
+  YEAR
+  MONTH
+  WEEK
+  DAY
+}

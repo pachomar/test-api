@@ -1,0 +1,14 @@
+# Application info
+type App {
+  # The application name
+  appName: String
+
+  # The current application version
+  appVersion: String
+
+  # The current time
+  # currentTime: Date
+
+  # The URL or the GraphQL playground for viewing the schema and documentation
+  graphQLPlayground: String
+}
